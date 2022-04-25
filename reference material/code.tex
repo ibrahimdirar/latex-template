@@ -1,0 +1,88 @@
+
+Algorithm~\ref{algo:algo_example} is a good example of an algorithm in \LaTeX.
+\begin{algorithm}
+    \caption{Example caption: sum of all even numbers}
+    \label{algo:algo_example}
+    \begin{algorithmic}[1]
+        \Require{$ \mathbf{x}  = x_1, x_2, \ldots, x_N$}
+        \Ensure{$EvenSum$ (Sum of even numbers in $ \mathbf{x} $)}
+        \Statex
+        \Function{EvenSummation}{$\mathbf{x}$}
+        \State {$EvenSum$ $\gets$ {$0$}}
+        \State {$N$ $\gets$ {$length(\mathbf{x})$}}
+        \For{$i \gets 1$ to $N$}
+        \If{$ x_i\mod 2 == 0$}  \Comment check if a number is even?
+        \State {$EvenSum$ $\gets$ {$EvenSum + x_i$}}
+        \EndIf
+        \EndFor
+        \State \Return {$EvenSum$}
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
+
+Code Listing~\ref{list:python_code_ex} is a good example of including a code snippet in a report. While using code snippets, take care of the following:
+\begin{itemize}
+    \item do not paste your entire code (implementation) or everything you have coded. Add code snippets only.
+    \item The algorithm shown in Algorithm~\ref{algo:algo_example} is usually preferred over code snippets in a technical/scientific report.
+    \item Make sure the entire code snippet or algorithm stays on a single page and does not overflow to another page(s).
+\end{itemize}
+
+Here are three examples of code snippets for three different languages (Python, Java, and CPP) illustrated in Listings~\ref{list:python_code_ex}, \ref{list:java_code_ex}, and \ref{list:cpp_code_ex} respectively.
+
+\begin{lstlisting}[language=Python, caption={Code snippet in \LaTeX ~and  this is a Python code example}, label=list:python_code_ex]
+import numpy as np
+
+x  = [0, 1, 2, 3, 4, 5] # assign values to an array
+evenSum = evenSummation(x) # call a function
+
+def evenSummation(x):
+    evenSum = 0
+    n = len(x)
+    for i in range(n):
+        if np.mod(x[i],2) == 0: # check if a number is even?
+            evenSum = evenSum + x[i]
+    return evenSum
+\end{lstlisting}
+
+Here we used  the ``\textbackslash clearpage'' command and forced-out the second listing example onto the next page.
+\clearpage  %
+\begin{lstlisting}[language=Java, caption={Code snippet in \LaTeX ~and  this is a Java code example}, label=list:java_code_ex]
+public class EvenSum{ 
+    public static int evenSummation(int[] x){
+        int evenSum = 0;
+        int n = x.length;
+        for(int i = 0; i < n; i++){
+            if(x[i]%2 == 0){ // check if a number is even?
+                evenSum = evenSum + x[i];
+            }
+        }
+        return evenSum;     
+    }
+    public static void main(String[] args){ 
+        int[] x  = {0, 1, 2, 3, 4, 5}; // assign values to an array
+        int evenSum = evenSummation(x);
+        System.out.println(evenSum);
+    } 
+} 
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=C, caption={Code snippet in \LaTeX ~and  this is a C/C++ code example}, label=list:cpp_code_ex]
+int evenSummation(int x[]){
+    int evenSum = 0;
+    int n = sizeof(x);
+    for(int i = 0; i < n; i++){
+        if(x[i]%2 == 0){ // check if a number is even?
+            evenSum = evenSum + x[i];
+    	}
+    }
+    return evenSum;     
+}
+
+int main(){
+    int x[]  = {0, 1, 2, 3, 4, 5}; // assign values to an array
+    int evenSum = evenSummation(x);
+    cout<<evenSum;
+    return 0;
+}
+\end{lstlisting}

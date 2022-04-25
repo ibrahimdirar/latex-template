@@ -1,0 +1,136 @@
+%%----------------------------------------------------------------------------------
+% DO NOT Change this. It is the required setting A4 page, 12pt, onside print, book style
+%%----------------------------------------------------------------------------------
+\documentclass{article}
+
+%%-------------------------------------
+%% Page margin settings - % half inch margin all sides (recommended)
+%%-------------------------------------
+\usepackage[margin=1.2in]{geometry} 
+
+%%-------------------------------------
+%% Font settings - % CM San or Ariel (recommended)
+%%-------------------------------------
+% Switch the following two line off: to revert back to default LaTex font (NOT recommended)
+% \usepackage{amsfonts}
+% \renewcommand*\familydefault{\sfdefault}
+
+%%-------------------------------------
+%% Orientation settings
+%%-------------------------------------
+\usepackage{pdflscape}
+\usepackage{afterpage}
+
+%%-------------------------------------
+%% Math/Definition/Theorem/Algorithm packages settings 
+%%-------------------------------------
+\usepackage[cmex10]{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{mydef}{Definition}
+\newtheorem{mytherm}{Theorem}
+
+%%-------------------------------------
+%% Algorithms/Code Listing environment settings  - 
+%% Please do not change these settings
+%%-------------------------------------
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0.1}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codeblue}{rgb}{0.10,0.00,1.00}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{1.0,1.0,1.0}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codeblue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                        
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    frame=none
+}
+\lstset{style=mystyle}
+
+%%-------------------------------------
+%% Graphics/Figures environment settings
+%%-------------------------------------
+\usepackage{graphicx}
+\usepackage[graphicx]{realboxes}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{lipsum}
+
+%%-------------------------------------
+%% Table environment settings
+%%-------------------------------------
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{makecell}
+\usepackage{booktabs}
+%\usepackage{longtable,booktabs}
+
+%%-------------------------------------
+%% List of Abbreviations settings
+%%-------------------------------------
+\usepackage{enumitem}
+\newlist{abbrv}{itemize}{1}
+\setlist[abbrv,1]{label=,labelwidth=1in,align=parleft,itemsep=0.1\baselineskip,leftmargin=!}
+
+%%-------------------------------------
+%% Summary settings
+%%-------------------------------------
+\renewcommand{\abstractname}{Executive Summary}
+\renewenvironment{abstract}
+ {\quotation\small\noindent\rule{\linewidth}{.5pt}\par\smallskip
+  {\centering\bfseries\abstractname\par}\medskip}
+ {\par\noindent\rule{\linewidth}{.5pt}\endquotation}
+
+%%-------------------------------------
+%% Bibliography/References settings
+%%-------------------------------------
+\usepackage[style=bath,sorting=ynt]{biblatex}
+\assignrefcontextentries[]{*}
+\addbibresource{references.bib}
+\nocite{*}
+
+%%-------------------------------------
+%% Report content
+%%-------------------------------------
+\title{Report Title}
+\author{Ibrahim Dirar}
+\date{\today}
+
+\begin{document}
+
+\captionsetup[figure]{margin=1.5cm,font=small,name={Figure}}
+\captionsetup[table]{margin=1.5cm,font=small,name={Table}}
+
+\maketitle
+\begin{abstract}
+    \lipsum*[2]
+\end{abstract}
+
+\input{sections/section_1.tex}
+
+\newrefcontext[sorting=nyt]
+\printbibliography
+
+
+\end{document}
